@@ -44,5 +44,19 @@ public class KMR_Blockchain {
         }
         return null;
     }
+
+    public int kmrProofOfWork(int lastProofOfWork, long hashToGuess) {
+        int proof = 0;
+        while (!kmrIsProofValid(lastProofOfWork, proof, Long.toString(hashToGuess))) {
+            proof++;
+        }
+        return proof;
+    }
+
+    public boolean kmrIsProofValid(int lastProof, int proof, String hashToGuess) {
+        String guessString = Integer.toString(lastProof) + Integer.toString(proof);
+        String guessHash = Hashing.sha256().hashString(guessString, StandardCharsets.UTF_8).toString();
+        return guessHash.endsWith(hashToGuess);
+    }
 }
 
