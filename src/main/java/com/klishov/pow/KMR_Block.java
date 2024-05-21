@@ -4,12 +4,12 @@ import java.util.List;
 
 public class KMR_Block {
     private final int kmrIndex;
+    private final String kmrPreviousHash;
+    private final int kmrProof;
     private final long kmrTimestamp;
     private final List<KMR_Transaction> kmrTransactions;
-    private final int kmrProof;
-    private final String kmrPreviousHash;
 
-    public KMR_Block(int index, List<KMR_Transaction> transactions, int proof, String previousHash) {
+    public KMR_Block(int index, String previousHash, int proof, List<KMR_Transaction> transactions) {
         this.kmrIndex = index;
         this.kmrTransactions = transactions;
         this.kmrProof = proof;

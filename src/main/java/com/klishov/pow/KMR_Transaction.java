@@ -2,11 +2,11 @@ package com.klishov.pow;
 
 public class KMR_Transaction {
 
-    private final String kmrSender;
-    private final String kmrRecipient;
     private final int kmrAmount;
+    private final String kmrRecipient;
+    private final String kmrSender;
 
-    public KMR_Transaction(String sender, String recipient, int amount) {
+    public KMR_Transaction(int amount, String recipient, String sender) {
         this.kmrSender = sender;
         this.kmrRecipient = recipient;
         this.kmrAmount = amount;
